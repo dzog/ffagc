@@ -1,10 +1,26 @@
 class ArtistController < ApplicationController
-  def new
+  def signup
   
   end
 
   def create
-    render plain: params[:artist].inspect
+   # @artist = Artist.new(params[:artist])
+
+   # @artist = Artist.create(params[:artist])
+
+   @artist = Artist.new
+   @artist.name = params[:artist][:name]
+   @artist.email = params[:artist][:email]
+
+   if @artist.save
+     render "signup_success"
+   else
+     render "signup_failure"
+   end
+
+   # render plain: params[:artist].inspect
+   # render "signup_success"
+   
   end
 
 end

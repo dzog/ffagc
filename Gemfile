@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -42,3 +42,12 @@ gem 'execjs'
 gem 'therubyracer'
 
 # gem 'clearance' 
+
+ gem 'formtastic'
+
+gem 'judge', '~> 2.0.5'
+
+ gem 'judge-formtastic', github: 'joecorcoran/judge-formtastic'
+
+# gem 'judge-formtastic'
+

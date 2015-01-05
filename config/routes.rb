@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/index'
+  mount Judge::Engine => '/judge'
 
   root 'home#index'
 

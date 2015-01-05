@@ -5,3 +5,19 @@
 <% else %>
     artist is NOT logged in
 <% end %>
+
+<br /> <br />
+
+<% if voter_logged_in? %>
+    voter is logged in: <%= current_voter.name %> (<%= current_voter.email %>)
+<% else %>
+    voter is NOT logged in
+<% end %>
+
+<br /> <br />
+
+<% if admin_logged_in? %>
+    admin is logged in: <%= current_admin.name %> (<%= current_admin.email %>)
+<% else %>
+    admin is NOT logged in
+<% end %>

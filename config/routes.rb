@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 
   get 'artists/signup' => 'artists#signup'
   post 'artists/signup' => 'artists#create'
-  post 'artists/login' => 'sessions#create'
 
-  resources :artists
+  post 'artists/login' => 'sessions#create_artist'
+  post 'voters/login' => 'sessions#create_voter'
+  post 'admins/login' => 'sessions#create_admin'
+
+  resources :artists, :voters, :admins
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

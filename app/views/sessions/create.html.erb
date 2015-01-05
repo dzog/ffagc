@@ -1,0 +1,9 @@
+<h1>Artists</h1>
+
+<%= form_tag(controller: 'sessions', action:'create') do %>
+  <%= label :session, :email %>
+  <%= text_field :session, :email %>
+  <%= label :session, :password %>
+  <%= password_field :session, :password %>
+  <%= submit_tag("Sign in", class: "btn btn-large btn-primary") %>
+<% end %>

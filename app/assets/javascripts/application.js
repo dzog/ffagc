@@ -14,3 +14,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//= require underscore
+//= require json2
+//= require judge
+
+function validate() {
+
+/*
+judge.validate(document.getElementById('artist_name'), {
+  valid: function(element) {
+    element.style.border = '1px solid green';
+  },
+  invalid: function(element, messages) {
+    element.style.border = '1px solid red';
+    alert(messages.join(','));
+  }
+});
+  
+  */
+
+}

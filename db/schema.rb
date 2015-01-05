@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113111700) do
+ActiveRecord::Schema.define(version: 20150103175105) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
+    t.string   "contact_name"
+    t.string   "contact_phone"
+    t.string   "contact_street"
+    t.string   "contact_city"
+    t.string   "contact_state"
+    t.string   "contact_country"
   end
 
 end

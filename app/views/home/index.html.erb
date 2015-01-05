@@ -1,2 +1,7 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>h0me</h1>
+
+<% if artist_logged_in? %>
+    artist is logged in: <%= current_artist.name %> (<%= current_artist.email %>)
+<% else %>
+    artist is NOT logged in
+<% end %>

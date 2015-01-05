@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  get 'home/index'
   mount Judge::Engine => '/judge'
 
+  get 'home/index'
   root 'home#index'
 
-  get 'artist/signup' => 'artist#signup'
+  get 'artists/signup' => 'artists#signup'
+  post 'artists/signup' => 'artists#create'
+  post 'artists/login' => 'sessions#create'
 
-  post 'artist/signup' => 'artist#create'
+  resources :artists
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

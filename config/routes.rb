@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get 'artists/signup' => 'artists#signup'
   post 'artists/signup' => 'artists#create'
+  
+  get 'voters/signup' => 'voters#signup'
+  post 'voters/signup' => 'voters#create'
 
   post 'artists/login' => 'sessions#create_artist'
   post 'voters/login' => 'sessions#create_voter'

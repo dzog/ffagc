@@ -1,34 +1,17 @@
 <h1>Voter Signup</h1>
 
-<% if true %>
-
 <%= semantic_form_for @voter, :html => { :onsubmit => 'return validate();'} do |f| %>
 
   <%= f.inputs do %>
-    <%= f.input :name, :label => "Artist Name (or collective)", :required => true, :validate => true %>
+    <%= f.input :name, :label => "Full Name", :required => true, :validate => true %>
     <%= f.input :email, :label => "Email Address (this is your login)", :required => true, :validate => true %>
     <%= f.input :password, :label => "Password", :required => true, :validate => true %>
     <%= f.input :password_confirmation, :label => "Password Confirmation", :required => true, :validate => true %>
   <% end %>
 
-  <br />
-  Primary Contact Info:
-  <br />
-  <br />
-  <%= f.inputs do %>
-        <%= f.input :contact_name, :label => "Full Name", :required => true, :validate => true %>
-        <%= f.input :contact_phone, :label => "Phone Number", :required => true, :validate => true %>
-        <%= f.input :contact_street, :label => "Street Address", :required => true, :validate => true %>
-        <%= f.input :contact_city, :label => "City", :required => true, :validate => true %>
-        <%= f.input :contact_state, :label => "State", :required => true, :validate => true %>
-  <% end %>
-
   <%= f.actions do %>
     <%= f.action :submit, :as => :button, :label => "Sign Up" %>
   <% end %>
-
-
-<% end %>
 
 <% end %>
 
@@ -38,7 +21,7 @@ function validate() {
 
 errors = 0;
 
-judge.validate(document.getElementById('artist_name'), {
+judge.validate(document.getElementById('voter_name'), {
   valid: function(element) {
     element.style.border = '1px solid green';
   },
@@ -49,7 +32,7 @@ judge.validate(document.getElementById('artist_name'), {
   }
 });
 
-judge.validate(document.getElementById('artist_email'), {
+judge.validate(document.getElementById('voter_email'), {
   valid: function(element) {
     element.style.border = '1px solid green';
   },
@@ -60,7 +43,7 @@ judge.validate(document.getElementById('artist_email'), {
   }
 });
 
-judge.validate(document.getElementById('artist_password'), {
+judge.validate(document.getElementById('voter_password'), {
   valid: function(element) {
     element.style.border = '1px solid green';
   },
@@ -71,7 +54,7 @@ judge.validate(document.getElementById('artist_password'), {
   }
 });
 
-judge.validate(document.getElementById('artist_password_confirmation'), {
+judge.validate(document.getElementById('voter_password_confirmation'), {
   valid: function(element) {
     element.style.border = '1px solid green';
   },

@@ -23,7 +23,9 @@ class VotersController < ApplicationController
         @voter.email = @voter.email.downcase
         
         if @voter.save
-            render "signup_success" #doesnt exist
+            session[:voter_id] = @voter.id # log in
+
+            render "signup_success" 
             else
             render "signup_failure"
         end

@@ -23,6 +23,7 @@ class ArtistsController < ApplicationController
    @artist.email = @artist.email.downcase
 
    if @artist.save
+    session[:artist_id] = @artist.id # log in
     render "signup_success"
    else
     render "signup_failure"

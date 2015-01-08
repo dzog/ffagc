@@ -1,0 +1,7 @@
+<h1>You are now a voter!!!!</h1>
+<br /><br />
+You have been registered as a voter. Woot.
+<br /><br />
+<% if voter_logged_in? %>
+    <%= current_voter.name %>
+<% end %>

@@ -1,5 +1,13 @@
 <h1>h0me</h1>
 
+Are you an artist? <%= link_to "Click Here", :controller => "artists", :action => "index" %>
+<br /><br />
+Are you a member of the voting committee? <%= link_to "Click Here", :controller => "voters", :action => "index" %>
+<br /><br />
+Are you an administrator (art grant core)? <%= link_to "Click Here", :controller => "admins", :action => "index" %>
+
+<hr />
+
 <% if artist_logged_in? %>
     artist is logged in: <%= current_artist.name %> (<%= current_artist.email %>)
 <% else %>

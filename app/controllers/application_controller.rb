@@ -35,6 +35,8 @@ class ApplicationController < ActionController::Base
     true if current_voter
   end
 
+  helper_method :voter_logged_in?
+
   # /admins
 
   public

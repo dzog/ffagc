@@ -1,9 +1,10 @@
 <h1>Voters</h1>
 
+Register as a judge: <%= link_to "Click Here", :controller => "voters", :action => "signup" %>
+<br /><br />
 <%= form_tag(controller: 'sessions', action:'create_voter') do %>
-  <%= label :session, :email %>
-  <%= text_field :session, :email %>
-  <%= label :session, :password %>
-  <%= password_field :session, :password %>
+Sign in: 
+  <%= text_field :session, :email, :placeholder => "Email Address" %>
+  <%= password_field :session, :password, :placeholder => "Password" %>
   <%= submit_tag("Sign in", class: "btn btn-large btn-primary") %>
 <% end %>

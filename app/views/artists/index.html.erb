@@ -1,5 +1,9 @@
 <h1>Artists</h1>
 
+<% if artist_logged_in? %>
+    artist is logged in: <%= current_artist.name %> (<%= current_artist.email %>) [<%= link_to "Log Out", :controller => "sessions", :action => "delete_artist" %>]
+<% else %>
+
 Register as an artist: <%= link_to "Click Here", :controller => "artists", :action => "signup" %>
 <br /><br />
 <%= form_tag(controller: 'sessions', action:'create_artist') do %>
@@ -7,4 +11,6 @@ Sign in:
   <%= text_field :session, :email, :placeholder => "Email Address" %>
   <%= password_field :session, :password, :placeholder => "Password" %>
   <%= submit_tag("Sign in", class: "btn btn-large btn-primary") %>
+<% end %>
+
 <% end %>

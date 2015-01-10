@@ -1,6 +1,7 @@
 <h1>Admins</h1>
 
 <%= form_tag(controller: 'sessions', action:'create_admin') do %>
+Sign in:
   <%= text_field :session, :email, :placeholder => "Email Address" %>
   <%= password_field :session, :password, :placeholder => "Password" %>
   <%= submit_tag("Sign in", class: "btn btn-large btn-primary") %>

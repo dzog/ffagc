@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
     true if current_artist
   end
 
+  helper_method :artist_logged_in?
+
   # /voters
 
   public
@@ -50,5 +52,7 @@ class ApplicationController < ActionController::Base
   def admin_logged_in?
     true if current_admin
   end
+
+  helper_method :admin_logged_in?
   
 end

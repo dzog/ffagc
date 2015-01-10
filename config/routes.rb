@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   post 'voters/login' => 'sessions#create_voter'
   post 'admins/login' => 'sessions#create_admin'
 
+  get 'artists/logout' => 'sessions#delete_artist'
+  get 'voters/logout' => 'sessions#delete_voter'
+  get 'admins/logout' => 'sessions#delete_admin'
+
   resources :artists, :voters, :admins
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -38,6 +38,17 @@ function validate() {
     }
   });
 
+  judge.validate(document.getElementById('grant_submission_proposal'), {
+    valid: function(element) {
+      element.style.border = '1px solid green';
+    },
+    invalid: function(element, messages) {
+      element.style.border = '1px solid red';
+      alert('name error: ' + messages.join(','));
+      errors++;
+    }
+  });
+
   return errors===0;
 }
 

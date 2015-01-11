@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110210908) do
+ActiveRecord::Schema.define(version: 20150111224548) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 20150110210908) do
     t.datetime "updated_at"
     t.string   "password_digest"
   end
+
+  create_table "artist_surveys", force: true do |t|
+    t.boolean  "has_attended_firefly"
+    t.string   "has_attended_firefly_desc"
+    t.boolean  "has_attended_regional"
+    t.string   "has_attended_regional_desc"
+    t.boolean  "has_attended_bm"
+    t.string   "has_attended_bm_desc"
+    t.boolean  "can_use_as_example"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artist_id"
+  end
+
+  add_index "artist_surveys", ["artist_id"], name: "index_artist_surveys_on_artist_id"
 
   create_table "artists", force: true do |t|
     t.string   "name"

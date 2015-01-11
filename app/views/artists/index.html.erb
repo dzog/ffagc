@@ -2,7 +2,7 @@
 
 <% if artist_logged_in? %>
 
-    artist is logged in: <%= current_artist.name %> (<%= current_artist.email %>) [<%= link_to "Log Out", :controller => "sessions", :action => "delete_artist" %>]
+    You are logged in as: <%= current_artist.name %> (<%= current_artist.email %>) [<%= link_to "Log Out", :controller => "sessions", :action => "delete_artist" %>]
 
     <br /><br />
 

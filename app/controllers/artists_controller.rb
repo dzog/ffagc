@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :password_digest, :password, :password_confirmation, :email, :contact_name, :contact_phone, :contact_street, :contact_city, :contact_state)
+    params.require(:artist).permit(:name, :password_digest, :password, :password_confirmation, :email, :contact_name, :contact_phone, :contact_street, :contact_city, :contact_state, :survey_has_attended_firefly)
   end
 
   def create

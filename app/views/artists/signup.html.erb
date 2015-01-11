@@ -2,89 +2,115 @@
 
 <% if true %>
 
+    <%= semantic_form_for @artist, :html => {:onsubmit => 'return validate();'} do |f| %>
 
-<%= semantic_form_for @artist, :html => { :onsubmit => 'return validate();'} do |f| %>
+        Basic Details:
+        <br />
+        <br />
+        <%= f.inputs do %>
+            <%= f.input :name, :label => "Artist Name (or collective)", :required => true, :validate => true %>
+            <%= f.input :email, :label => "Email Address (this is your login)", :required => true, :validate => true %>
+            <%= f.input :password, :label => "Password", :required => true, :validate => true %>
+            <%= f.input :password_confirmation, :label => "Password Confirmation", :required => true, :validate => true %>
+        <% end %>
 
-  <%= f.inputs do %>
-    <%= f.input :name, :label => "Artist Name (or collective)", :required => true, :validate => true %>
-    <%= f.input :email, :label => "Email Address (this is your login)", :required => true, :validate => true %>
-    <%= f.input :password, :label => "Password", :required => true, :validate => true %>
-    <%= f.input :password_confirmation, :label => "Password Confirmation", :required => true, :validate => true %>
-  <% end %>
+        <br />
+        <br />
+        Primary Contact Info:
+        <br/>
+        <br/>
+        <%= f.inputs do %>
+            <%= f.input :contact_name, :label => "Full Name", :required => true, :validate => true %>
+            <%= f.input :contact_phone, :label => "Phone Number", :required => true, :validate => true %>
+            <%= f.input :contact_street, :label => "Street Address", :required => true, :validate => true %>
+            <%= f.input :contact_city, :label => "City", :required => true, :validate => true %>
+            <%= f.input :contact_state, :label => "State", :required => true, :validate => true %>
+        <% end %>
 
-  <br />
-  Primary Contact Info:
-  <br />
-  <br />
-  <%= f.inputs do %>
-        <%= f.input :contact_name, :label => "Full Name", :required => true, :validate => true %>
-        <%= f.input :contact_phone, :label => "Phone Number", :required => true, :validate => true %>
-        <%= f.input :contact_street, :label => "Street Address", :required => true, :validate => true %>
-        <%= f.input :contact_city, :label => "City", :required => true, :validate => true %>
-        <%= f.input :contact_state, :label => "State", :required => true, :validate => true %>
-  <% end %>
+        <br />
+        <br />
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :button, :label => "Sign Up" %>
-  <% end %>
+        Optional Survey:
+        <br />
+        <br />
 
+        <%= f.inputs do %>
+            <%= check_box :survey, :has_attended_firefly %> I have attended Firefly
+            <br />
+            <%= text_area :survey, :has_attended_firefly_desc, size: "50x10", :placeholder => "Please elaborate. How have you participated at Firefly?" %>
+            <br /> <br />
+            <%= check_box :survey, :has_attended_regional %> I have attended a Burning Man Regional Event (besides Firefly)
+            <br />
+            <%= text_area :survey, :has_attended_regional_desc, size: "50x10", :placeholder => "Please elaborate. How have you participated at other regionals?" %>
+            <br /><br />
+            <%= check_box :survey, :has_attended_bm %> I have attended Burning Man
+            <br />
+            <%= text_area :survey, :has_attended_bm_desc, size: "50x10", :placeholder => "Please elaborate. How have you participated at Burning Man?" %>
+            <br />
+        <% end %>
 
-<% end %>
+        <br />
+        <br />
+        <%= f.actions do %>
+            <%= f.action :submit, :as => :button, :label => "Sign Up" %>
+        <% end %>
+
+    <% end %>
 
 <% end %>
 
 <script>
 
-function validate() {
+    function validate() {
 
-errors = 0;
+        errors = 0;
 
-judge.validate(document.getElementById('artist_name'), {
-  valid: function(element) {
-    element.style.border = '1px solid green';
-  },
-  invalid: function(element, messages) {
-    element.style.border = '1px solid red';
-    alert('name error: ' + messages.join(','));
-    errors++;
-  }
-});
+        judge.validate(document.getElementById('artist_name'), {
+            valid: function (element) {
+                element.style.border = '1px solid green';
+            },
+            invalid: function (element, messages) {
+                element.style.border = '1px solid red';
+                alert('name error: ' + messages.join(','));
+                errors++;
+            }
+        });
 
-judge.validate(document.getElementById('artist_email'), {
-  valid: function(element) {
-    element.style.border = '1px solid green';
-  },
-  invalid: function(element, messages) {
-    element.style.border = '1px solid red';
-    alert('email error:' + messages.join(','));
-    errors++;
-  }
-});
+        judge.validate(document.getElementById('artist_email'), {
+            valid: function (element) {
+                element.style.border = '1px solid green';
+            },
+            invalid: function (element, messages) {
+                element.style.border = '1px solid red';
+                alert('email error:' + messages.join(','));
+                errors++;
+            }
+        });
 
-judge.validate(document.getElementById('artist_password'), {
-  valid: function(element) {
-    element.style.border = '1px solid green';
-  },
-  invalid: function(element, messages) {
-    element.style.border = '1px solid red';
-    alert('password error:' + messages.join(','));
-    errors++;
-  }
-});
+        judge.validate(document.getElementById('artist_password'), {
+            valid: function (element) {
+                element.style.border = '1px solid green';
+            },
+            invalid: function (element, messages) {
+                element.style.border = '1px solid red';
+                alert('password error:' + messages.join(','));
+                errors++;
+            }
+        });
 
-judge.validate(document.getElementById('artist_password_confirmation'), {
-  valid: function(element) {
-    element.style.border = '1px solid green';
-  },
-  invalid: function(element, messages) {
-    element.style.border = '1px solid red';
-    alert('password_confirmation error:' + messages.join(','));
-    errors++;
-  }
-});
+        judge.validate(document.getElementById('artist_password_confirmation'), {
+            valid: function (element) {
+                element.style.border = '1px solid green';
+            },
+            invalid: function (element, messages) {
+                element.style.border = '1px solid red';
+                alert('password_confirmation error:' + messages.join(','));
+                errors++;
+            }
+        });
 
-return errors===0;
+        return errors === 0;
 
-}
+    }
 
 </script>

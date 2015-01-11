@@ -16,6 +16,8 @@ class GrantSubmissionsController < ApplicationController
     @grant_submission.artist_id = current_artist.id
 
     @grant_submission.save
+
+    redirect_to :controller => "artists", :action => "index"
   end
 
   def index

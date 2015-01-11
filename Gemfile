@@ -51,3 +51,6 @@ gem 'judge', '~> 2.0.5'
 
 # gem 'judge-formtastic'
 
+gem 'carrierwave'
+
+

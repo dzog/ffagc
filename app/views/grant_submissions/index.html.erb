@@ -1,0 +1,44 @@
+<h1>Submit a Grant Proposal</h1>
+
+<% if artist_logged_in? %>
+hello!
+
+<%= semantic_form_for @grant_submission, :html => { :onsubmit => 'return validate();'} do |f| %>
+
+  <%= f.inputs do %>
+      <%= f.input :name, :label => "Name of Piece", :required => true, :validate => true %>
+      <%= f.file_field :proposal %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :button, :label => "Submit" %>
+  <% end %>
+
+<% end %>
+
+<% else %>
+You must be logged in as an artist to submit a grant proposal. (<%= link_to "Log In", :controller => "artists", :action => "index" %>)
+<% end %>
+
+
+<script>
+
+function validate() {
+
+  errors = 0;
+
+  judge.validate(document.getElementById('grant_submission_name'), {
+    valid: function(element) {
+      element.style.border = '1px solid green';
+    },
+    invalid: function(element, messages) {
+      element.style.border = '1px solid red';
+      alert('name error: ' + messages.join(','));
+      errors++;
+    }
+  });
+
+  return errors===0;
+}
+
+</script>

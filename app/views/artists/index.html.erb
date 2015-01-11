@@ -1,7 +1,13 @@
 <h1>Artists</h1>
 
 <% if artist_logged_in? %>
+
     artist is logged in: <%= current_artist.name %> (<%= current_artist.email %>) [<%= link_to "Log Out", :controller => "sessions", :action => "delete_artist" %>]
+
+    <br /><br />
+
+    <%= link_to "Submit a Grant Proposal", :controller => "grant_submissions", :action => "index" %>
+
 <% else %>
 
 Register as an artist: <%= link_to "Click Here", :controller => "artists", :action => "signup" %>

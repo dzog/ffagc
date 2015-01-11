@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105214008) do
+ActiveRecord::Schema.define(version: 20150110210908) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -33,6 +33,25 @@ ActiveRecord::Schema.define(version: 20150105214008) do
     t.string   "contact_city"
     t.string   "contact_state"
     t.string   "contact_country"
+  end
+
+  create_table "grant_submissions", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "grant_id"
+    t.integer  "artist_id"
+    t.string   "proposal"
+  end
+
+  add_index "grant_submissions", ["artist_id"], name: "index_grant_submissions_on_artist_id"
+  add_index "grant_submissions", ["grant_id"], name: "index_grant_submissions_on_grant_id"
+
+  create_table "grants", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "voters", force: true do |t|

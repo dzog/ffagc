@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   get 'voters/logout' => 'sessions#delete_voter'
   get 'admins/logout' => 'sessions#delete_admin'
 
-  resources :artists, :voters, :admins
+  get 'artists/grant_submissions' => 'grant_submissions#index'
+
+  resources :artists, :voters, :admins, :grant_submissions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

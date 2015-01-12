@@ -1,31 +1,35 @@
-<h1>h0me</h1>
+<h1>Firefly 2015 - Art Grants </h1>
 
-Are you an artist? <%= link_to "Click Here", :controller => "artists", :action => "index" %>
-<br /><br />
-Are you a member of the voting committee? <%= link_to "Click Here", :controller => "voters", :action => "index" %>
-<br /><br />
-Are you an administrator (art grant core)? <%= link_to "Click Here", :controller => "admins", :action => "index" %>
+Are you an <%= link_to "artist", :controller => "artists", :action => "index" %>?
+<br/><br/>
+Are you a member of the <%= link_to "voting committee", :controller => "voters", :action => "index" %>?
+<br/><br/>
+Are you an <%= link_to "administrator", :controller => "admins", :action => "index" %>?
 
-<hr />
+<% if false %>
 
-<% if artist_logged_in? %>
-    artist is logged in: <%= current_artist.name %> (<%= current_artist.email %>)
-<% else %>
-    artist is NOT logged in
-<% end %>
+    <hr/>
 
-<br /> <br />
+    <% if artist_logged_in? %>
+        artist is logged in: <%= current_artist.name %> (<%= current_artist.email %>)
+    <% else %>
+        artist is NOT logged in
+    <% end %>
 
-<% if voter_logged_in? %>
-    voter is logged in: <%= current_voter.name %> (<%= current_voter.email %>)
-<% else %>
-    voter is NOT logged in
-<% end %>
+    <br/> <br/>
 
-<br /> <br />
+    <% if voter_logged_in? %>
+        voter is logged in: <%= current_voter.name %> (<%= current_voter.email %>)
+    <% else %>
+        voter is NOT logged in
+    <% end %>
 
-<% if admin_logged_in? %>
-    admin is logged in: <%= current_admin.name %> (<%= current_admin.email %>)
-<% else %>
-    admin is NOT logged in
+    <br/> <br/>
+
+    <% if admin_logged_in? %>
+        admin is logged in: <%= current_admin.name %> (<%= current_admin.email %>)
+    <% else %>
+        admin is NOT logged in
+    <% end %>
+
 <% end %>

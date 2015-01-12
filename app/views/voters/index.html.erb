@@ -1,10 +1,15 @@
 <h1>Voters</h1>
 
 <% if voter_logged_in? %>
-    voter is logged in: <%= current_voter.name %> (<%= current_voter.email %>) [<%= link_to "Log Out", :controller => "sessions", :action => "delete_voter" %>]
+    You are logged in as: <%= current_voter.name %> (<%= current_voter.email %>) [<%= link_to "Log Out", :controller => "sessions", :action => "delete_voter" %>]
+    <br /><br />
+    The voting process has not yet begun!
+    <br /><br />
+    Nothing to do here until then.
 <% else %>
 
-Register as a judge: <%= link_to "Click Here", :controller => "voters", :action => "signup" %>
+    <%= link_to "Register", :controller => "voters", :action => "signup" %> as a voting member of the judging committee.
+
 <br /><br />
 <%= form_tag(controller: 'sessions', action:'create_voter') do %>
 Sign in: 

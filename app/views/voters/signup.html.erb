@@ -1,72 +1,74 @@
-<h1>Voter Signup</h1>
+<div class="container">
+  <h1><%= link_to "Firefly Art Grants", :controller => "home", :action => "index" %>:Voter Signup</h1>
 
-<%= semantic_form_for @voter, :html => { :onsubmit => 'return validate();'} do |f| %>
+  <%= semantic_form_for @voter, :html => { :onsubmit => 'return validate();'} do |f| %>
 
-  <%= f.inputs do %>
-    <%= f.input :name, :label => "Full Name", :required => true, :validate => true %>
-    <%= f.input :email, :label => "Email Address (this is your login)", :required => true, :validate => true %>
-    <%= f.input :password, :label => "Password", :required => true, :validate => true %>
-    <%= f.input :password_confirmation, :label => "Password Confirmation", :required => true, :validate => true %>
+    <%= f.inputs do %>
+      <%= f.input :name, :label => "Full Name", :required => true, :validate => true %>
+      <%= f.input :email, :label => "Email Address (this is your login)", :required => true, :validate => true %>
+      <%= f.input :password, :label => "Password", :required => true, :validate => true %>
+      <%= f.input :password_confirmation, :label => "Password Confirmation", :required => true, :validate => true %>
+    <% end %>
+
+    <%= f.actions do %>
+      <%= f.action :submit, :as => :button, :label => "Sign Up" %>
+    <% end %>
+
   <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :button, :label => "Sign Up" %>
-  <% end %>
+  <script>
 
-<% end %>
+  function validate() {
 
-<script>
+  errors = 0;
 
-function validate() {
+  judge.validate(document.getElementById('voter_name'), {
+    valid: function(element) {
+      element.style.border = '1px solid green';
+    },
+    invalid: function(element, messages) {
+      element.style.border = '1px solid red';
+      alert('name error: ' + messages.join(','));
+      errors++;
+    }
+  });
 
-errors = 0;
+  judge.validate(document.getElementById('voter_email'), {
+    valid: function(element) {
+      element.style.border = '1px solid green';
+    },
+    invalid: function(element, messages) {
+      element.style.border = '1px solid red';
+      alert('email error:' + messages.join(','));
+      errors++;
+    }
+  });
 
-judge.validate(document.getElementById('voter_name'), {
-  valid: function(element) {
-    element.style.border = '1px solid green';
-  },
-  invalid: function(element, messages) {
-    element.style.border = '1px solid red';
-    alert('name error: ' + messages.join(','));
-    errors++;
+  judge.validate(document.getElementById('voter_password'), {
+    valid: function(element) {
+      element.style.border = '1px solid green';
+    },
+    invalid: function(element, messages) {
+      element.style.border = '1px solid red';
+      alert('password error:' + messages.join(','));
+      errors++;
+    }
+  });
+
+  judge.validate(document.getElementById('voter_password_confirmation'), {
+    valid: function(element) {
+      element.style.border = '1px solid green';
+    },
+    invalid: function(element, messages) {
+      element.style.border = '1px solid red';
+      alert('password_confirmation error:' + messages.join(','));
+      errors++;
+    }
+  });
+
+  return errors===0;
+
   }
-});
 
-judge.validate(document.getElementById('voter_email'), {
-  valid: function(element) {
-    element.style.border = '1px solid green';
-  },
-  invalid: function(element, messages) {
-    element.style.border = '1px solid red';
-    alert('email error:' + messages.join(','));
-    errors++;
-  }
-});
-
-judge.validate(document.getElementById('voter_password'), {
-  valid: function(element) {
-    element.style.border = '1px solid green';
-  },
-  invalid: function(element, messages) {
-    element.style.border = '1px solid red';
-    alert('password error:' + messages.join(','));
-    errors++;
-  }
-});
-
-judge.validate(document.getElementById('voter_password_confirmation'), {
-  valid: function(element) {
-    element.style.border = '1px solid green';
-  },
-  invalid: function(element, messages) {
-    element.style.border = '1px solid red';
-    alert('password_confirmation error:' + messages.join(','));
-    errors++;
-  }
-});
-
-return errors===0;
-
-}
-
-</script>
+  </script>
+</div>

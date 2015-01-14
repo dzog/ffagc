@@ -15,3 +15,67 @@
  */
 
 *= require formtastic
+
+body {
+	background-color: #7AB9C4;
+}
+
+body, div {
+	font-family: "Arial", "Tahoma", "Helvetica", serif;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	margin: 0 auto;
+	width: 800px;
+	padding: 50px;
+	font-size: 17px;
+	background-color: #fff;
+}
+
+a {
+	color: #9E1E4C;
+}
+
+a:hover {
+	color: #FF1168;
+}
+
+h1, h2, h3 {
+	color: #25020F;
+}
+
+fieldset {
+	background-color: #ECECEC;
+	border: 0;
+	padding: 20px;
+}
+
+form li {
+	padding: 10px;
+}
+
+form label {
+	padding-right: 20px;
+	display: inline-block;
+	width: 300px;
+}
+
+input, textarea, button {
+	padding: 10px;
+	font-size: 17px;
+	width: 350px;
+	border: 0;
+	background-color: #fff;
+	color: #9E1E4C;
+}
+
+checkbox {
+	width: 20px;
+}
+
+textarea {
+	margin-top: 10px;
+	width: 650px;
+}

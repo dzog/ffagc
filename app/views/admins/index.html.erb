@@ -1,8 +1,10 @@
-<h1>Admins</h1>
+<div class="container">
+  <h1><%= link_to "Firefly Art Grants", :controller => "home", :action => "index" %>: Admins</h1>
 
-<%= form_tag(controller: 'sessions', action:'create_admin') do %>
-Sign in:
-  <%= text_field :session, :email, :placeholder => "Email Address" %>
-  <%= password_field :session, :password, :placeholder => "Password" %>
-  <%= submit_tag("Sign in", class: "btn btn-large btn-primary") %>
-<% end %>
+	<%= form_tag(controller: 'sessions', action:'create_admin') do %>
+	Sign in:
+	  <%= text_field :session, :email, :placeholder => "Email Address" %>
+	  <%= password_field :session, :password, :placeholder => "Password" %>
+	  <%= submit_tag("Sign in", class: "btn btn-large btn-primary") %>
+	<% end %>
+</div>

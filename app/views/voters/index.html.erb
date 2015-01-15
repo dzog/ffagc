@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= link_to "Firefly Art Grants", :controller => "home", :action => "index" %>:Voters</h1>
+  <h1><%= link_to "Firefly Art Grants", :controller => "home", :action => "index" %>: Voting Committee</h1>
 
 	<% if voter_logged_in? %>
 	    You are logged in as: <%= current_voter.name %> (<%= current_voter.email %>) [<%= link_to "Log Out", :controller => "sessions", :action => "delete_voter" %>]
@@ -9,14 +9,19 @@
 	    Nothing to do here until then.
 	<% else %>
 
-	    <%= link_to "Register", :controller => "voters", :action => "signup" %> as a voting member of the judging committee.
+	    <%= link_to "Register", :controller => "voters", :action => "signup" %> as a voting member of the voting committee.
 
-	<br /><br />
+
+		<h2>Sign in:</h2>
+		<fieldset>
 	<%= form_tag(controller: 'sessions', action:'create_voter') do %>
-	Sign in: 
 	  <%= text_field :session, :email, :placeholder => "Email Address" %>
+			<br />
 	  <%= password_field :session, :password, :placeholder => "Password" %>
-	  <%= submit_tag("Sign in", class: "btn btn-large btn-primary") %>
+			<br />
+	  <%= submit_tag("Sign in", class: "button") %>
+
+	   </fieldset>
 	<% end %>
 
 	<% end %>

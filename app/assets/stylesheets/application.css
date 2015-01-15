@@ -14,8 +14,6 @@
  *= require_self
  */
 
-*= require formtastic
-
 body {
 	background-color: #7AB9C4;
 }

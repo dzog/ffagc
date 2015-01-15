@@ -1,12 +1,17 @@
 class SessionsController < ApplicationController
 
 def create_artist
+    if(!params[:session][:email].present? || !params[:session][:password].present?)
+        render "login_failure"
+        return
+    end
+
     artist = Artist.find_by_email(params[:session][:email])
     if artist && artist.authenticate(params[:session][:password])
         session[:artist_id] = artist.id 
         redirect_to :controller => "artists", :action => "index"
     else
-        flash.now.alert = "invalid" #does nothing for us
+        render "login_failure"
     end
 end
 
@@ -16,12 +21,17 @@ def delete_artist
 end
 
 def create_voter
+    if(!params[:session][:email].present? || !params[:session][:password].present?)
+        render "login_failure"
+        return
+    end
+
     voter = Voter.find_by_email(params[:session][:email])
     if voter && voter.authenticate(params[:session][:password])
         session[:voter_id] = voter.id 
         redirect_to :controller => "voters", :action => "index"
     else
-        flash.now.alert = "invalid" #does nothing for us
+        render "login_failure"
     end
 end
 
@@ -31,12 +41,17 @@ def delete_voter
 end
 
 def create_admin
+    if(!params[:session][:email].present? || !params[:session][:password].present?)
+        render "login_failure"
+        return
+    end
+
     admin = Admin.find_by_email(params[:session][:email])
     if admin && admin.authenticate(params[:session][:password])
         session[:admin_id] = admin.id 
         redirect_to :controller => "admins", :action => "index"
     else
-        flash.now.alert = "invalid" #does nothing for us
+        render "login_failure"
     end
 end
 

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  has_attended_firefly: false
+  has_attended_firefly_desc: MyString
+  has_attended_regional: false
+  has_attended_regional_desc: MyString
+  has_attended_bm: false
+  has_attended_bm_desc: MyString
+  can_use_as_example: false
+
+two:
+  has_attended_firefly: false
+  has_attended_firefly_desc: MyString
+  has_attended_regional: false
+  has_attended_regional_desc: MyString
+  has_attended_bm: false
+  has_attended_bm_desc: MyString
+  can_use_as_example: false

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111224548) do
+ActiveRecord::Schema.define(version: 20150115205609) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150111224548) do
     t.integer  "grant_id"
     t.integer  "artist_id"
     t.string   "proposal"
+    t.integer  "requested_funding_dollars"
   end
 
   add_index "grant_submissions", ["artist_id"], name: "index_grant_submissions_on_artist_id"
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150111224548) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "max_funding_dollars"
   end
 
   create_table "voters", force: true do |t|

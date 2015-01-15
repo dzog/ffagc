@@ -7,7 +7,7 @@ class GrantSubmissionsController < ApplicationController
   end
 
   def grant_submission_params
-    params.require(:grant_submission).permit(:name, :proposal)
+    params.require(:grant_submission).permit(:name, :proposal, :grant_id, :requested_funding_dollars)
   end
 
   def create

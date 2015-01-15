@@ -10,9 +10,7 @@
       <%= f.input :password_confirmation, :label => "Password Confirmation", :required => true, :validate => true %>
     <% end %>
 
-    <%= f.actions do %>
-      <%= f.action :submit, :as => :button, :label => "Sign Up" %>
-    <% end %>
+    <fieldset><%= submit_tag("Sign Up!", class: "button")%></fieldset>
 
   <% end %>
 

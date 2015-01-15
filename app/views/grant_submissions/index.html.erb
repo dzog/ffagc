@@ -5,14 +5,15 @@
 
   <%= semantic_form_for @grant_submission, :html => { :onsubmit => 'return validate();'} do |f| %>
 
-    <%= f.inputs do %>
+        <fieldset>
         <%= f.input :name, :label => "Name of Piece", :required => true, :validate => true %>
-        <%= f.file_field :proposal, :label => "Upload PDF" %>
-    <% end %>
 
-    <%= f.actions do %>
-      <%= f.action :submit, :as => :button, :label => "Submit Application" %>
-    <% end %>
+            <li class="string input required stringish" id="grant_submission_name_input"><label class="label" for="grant_submission_proposal">Application PDF<abbr title="required">*</abbr></label>
+
+                <%= f.file_field :proposal, :required => true, :validate => true, :style => "margin-left:-5px" %>
+            </li>
+            <br /><br />
+            <%= submit_tag("Submit Application", class: "button")%></fieldset>
 
   <% end %>
 
@@ -38,16 +39,13 @@
       }
     });
 
-    judge.validate(document.getElementById('grant_submission_proposal'), {
-      valid: function(element) {
-        element.style.border = '1px solid green';
-      },
-      invalid: function(element, messages) {
-        element.style.border = '1px solid red';
-        alert('name error: ' + messages.join(','));
-        errors++;
-      }
-    });
+    if(document.getElementById("grant_submission_proposal").value != "") {
+      document.getElementById("grant_submission_proposal").style.border = '1px solid green';
+    } else {
+      errors++;
+      alert('error: please select your application PDF!')
+      document.getElementById("grant_submission_proposal").style.border = '1px solid red';
+    }
 
     return errors===0;
   }

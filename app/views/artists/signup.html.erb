@@ -42,13 +42,11 @@
                 <%= text_area :survey, :has_attended_bm_desc, size: "100x5", :placeholder => "Please elaborate. How have you participated at Burning Man?" %>
                 <br /><br />
                 <%= check_box :survey, :can_use_as_example, :style => "width: 50px;" %> If I am awarded a grant, Firefly has permission to use my grant application as an example of a successful application in future years
-<% end %>
-
-            <br />
-            <br />
-            <%= f.actions do %>
-                <%= f.action :submit, :as => :button, :label => "Sign Up", :class => "button" %>
             <% end %>
+
+            <h2>Submit:</h2>
+
+            <fieldset><%= submit_tag("Sign Up!", class: "button")%></fieldset>
 
         <% end %>
 

@@ -15,9 +15,12 @@ class GrantSubmissionsController < ApplicationController
 
     @grant_submission.artist_id = current_artist.id
 
-    @grant_submission.save
+    if @grant_submission.save
+      render "success"
+    else
+      render "failure"
+    end
 
-    redirect_to :controller => "artists", :action => "index"
   end
 
   def index

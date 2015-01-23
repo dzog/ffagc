@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115205609) do
+ActiveRecord::Schema.define(version: 20150123203118) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -70,6 +70,23 @@ ActiveRecord::Schema.define(version: 20150115205609) do
     t.datetime "updated_at"
     t.integer  "max_funding_dollars"
   end
+
+  create_table "voter_surveys", force: true do |t|
+    t.boolean  "has_attended_firefly"
+    t.boolean  "not_applying_this_year"
+    t.boolean  "will_read"
+    t.boolean  "will_meet"
+    t.boolean  "has_been_voter"
+    t.boolean  "has_participated_other"
+    t.boolean  "has_received_grant"
+    t.boolean  "has_received_other_grant"
+    t.integer  "how_many_fireflies"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "voter_id"
+  end
+
+  add_index "voter_surveys", ["voter_id"], name: "index_voter_surveys_on_voter_id"
 
   create_table "voters", force: true do |t|
     t.string   "name"

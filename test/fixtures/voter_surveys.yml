@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  has_attended_firefly: false
+  not_applying_this_year: false
+  will_read: false
+  will_meet: false
+  has_been_voter: false
+  has_participated_other: false
+  has_received_grant: false
+  has_received_other_grant: false
+  how_many_fireflies: 1
+
+two:
+  has_attended_firefly: false
+  not_applying_this_year: false
+  will_read: false
+  will_meet: false
+  has_been_voter: false
+  has_participated_other: false
+  has_received_grant: false
+  has_received_other_grant: false
+  how_many_fireflies: 1

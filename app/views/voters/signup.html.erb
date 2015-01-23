@@ -3,12 +3,57 @@
 
   <%= semantic_form_for @voter, :html => { :onsubmit => 'return validate();'} do |f| %>
 
+        <h2>Basic Details:</h2>
     <%= f.inputs do %>
       <%= f.input :name, :label => "Full Name", :required => true, :validate => true %>
       <%= f.input :email, :label => "Email Address (this is your login)", :required => true, :validate => true %>
       <%= f.input :password, :label => "Password", :required => true, :validate => true %>
       <%= f.input :password_confirmation, :label => "Password Confirmation", :required => true, :validate => true %>
     <% end %>
+
+        <br />
+
+        <h2>Requirements:</h2>
+
+        <%= f.inputs do %>
+            <%= check_box :survey, :has_attended_firefly, :style => "width: 50px;" %> I have attended at least one previous Firefly
+            <br /><br />
+            <%= check_box :survey, :not_applying_this_year, :style => "width: 50px;" %> I am NOT applying for a Firefly Art Grant in 2015
+            <br /><br />
+            <%= check_box :survey, :will_read, :style => "width: 50px;" %> I commit to reading and considering > 35 applications (~4-6 hours of brain time)
+            <br /><br />
+            <%= check_box :survey, :will_meet, :style => "width: 50px;" %> I am willing and able to make all of the meeting discussion dates:
+            <br /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday 2/19, 7 PM to 9 PM
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday 2/26, 7 PM to 9 PM
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday 3/5, 7 PM to 9 PM
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday 3/12, 7 PM to 9 PM
+            <br /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; These meetings will be held in Davis Square in Somerville, MA (MBTA accessible).
+
+
+<% end %>
+
+
+        <br />
+
+        <h2>Survey:</h2>
+
+        <%= f.inputs do %>
+            <%= check_box :survey, :has_been_voter, :style => "width: 50px;" %> I have been a member of the Firefly art grant voting committee in previous years
+            <br /> <br />
+            <%= check_box :survey, :has_participated_other, :style => "width: 50px;" %> I have been on art grant voting/judging committees for other institutions
+            <br /><br />
+            <%= check_box :survey, :has_received_grant, :style => "width: 50px;" %> I have been awarded a Firefly art grant in previous years
+            <br /><br />
+            <%= check_box :survey, :has_received_other_grant, :style => "width: 50px;" %> I have been awarded art grants from other institutions
+            <br /><br />
+            How many Fireflies have you attended? <%= number_field :survey, :how_many_fireflies, :min => 0, :style => "width: 50px;" %>
+
+        <% end %>
 
     <fieldset><%= submit_tag("Sign Up!", class: "button")%></fieldset>
 

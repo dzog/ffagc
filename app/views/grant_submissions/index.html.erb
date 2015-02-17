@@ -11,7 +11,7 @@
 
             <li class="string input required stringish" id="grant_submission_name_input">
                 <label class="label" for="grant_submission_grant_id">Grant<abbr title="required">*</abbr></label>
-                <%= collection_select(:grant_submission, :grant_id, Grant.all, :id, :name, :include_blank => "(select a grant)") %>
+                <%= collection_select(:grant_submission, :grant_id, Grant.where(id: [3,4]), :id, :name, :include_blank => "(select a grant)") %>
             </li>
 
             <%= f.input :requested_funding_dollars, :label => "Requested Funding ($)", :required => true, :validate => true, :input_html => { :onKeyUp => "numericFilter(this);" }  %>

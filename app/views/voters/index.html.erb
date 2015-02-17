@@ -4,9 +4,32 @@
 	<% if voter_logged_in? %>
 	    You are logged in as: <%= current_voter.name %> (<%= current_voter.email %>) [<%= link_to "Log Out", :controller => "sessions", :action => "delete_voter" %>]
 	    <br /><br />
-	    The voting process has not yet begun!
+	    The voting process for <b>Lace</b> and <b>Temple</b> grants has begun!
 	    <br /><br />
-	    Nothing to do here until then.
+	    For your review, here are submitted applications:
+		<br /><br />
+		<table border="1" cellpadding="4">
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Grant</td>
+				<td>Requested</td>
+				<td>Submission</td>
+			</tr>
+			<% @grant_submissions.each do |gs| %>
+				<tr>
+					<td><%= gs.id %></td>
+					<td><%= gs.name %></td>
+					<td><%= (Grant.where(id: gs.grant_id).take).name rescue "Unknown" %></td>
+					<td>$<%= gs.requested_funding_dollars %></td>
+					<td><a href="<%= gs.proposal %>">Download</a></td>
+				</tr>
+
+			<% end %>
+		</table>
+		<br />
+		Voting will be possible from here once the voting process begins on Thursday February 19 (7-9 pm).
+
 	<% else %>
 
 	    <%= link_to "Register", :controller => "voters", :action => "signup" %> as a voting member of the voting committee.

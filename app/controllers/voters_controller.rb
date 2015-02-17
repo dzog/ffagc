@@ -46,6 +46,7 @@ class VotersController < ApplicationController
     end
     
     def index
+        @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #lace and temple only for now
         
     end
     

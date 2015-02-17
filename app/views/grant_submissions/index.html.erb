@@ -52,6 +52,11 @@
 
     errors = 0;
 
+    //round decimals in funding amounts -- whole dollars only
+    var requested_funding_dollars = document.getElementById('grant_submission_requested_funding_dollars').value;
+    var requested_funding_dollars_num = parseInt(requested_funding_dollars).toFixed(0);
+    document.getElementById('grant_submission_requested_funding_dollars').value = requested_funding_dollars_num.toString();
+
     judge.validate(document.getElementById('grant_submission_name'), {
       valid: function(element) {
         element.style.border = '1px solid green';

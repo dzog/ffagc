@@ -53,6 +53,8 @@ class VotersController < ApplicationController
 
         @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #lace and temple only for now
 
+        @grant_submissions = @grant_submissions.sort { |a,b| a.id <=> b.id }
+
         @votes = Hash.new
 
         @grant_submissions.each do |gs|

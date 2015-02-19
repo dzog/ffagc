@@ -47,7 +47,48 @@ class VotersController < ApplicationController
     
     def index
         @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #lace and temple only for now
+
+        @votes = Hash.new
+
+        @grant_submissions.each do |gs|
+            vote = Vote.where("voter_id = ? AND grant_submission_id = ?", current_voter.id, gs.id).take
+
+            if(!vote)
+                vote = Vote.new
+                vote.voter_id = current_voter.id
+                vote.grant_submission_id = gs.id
+                vote.save
+            end
+
+            @votes[gs.id] = vote
+
+        end
         
+    end
+
+  def vote
+      # render plain: params.inspect
+
+      @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #lace and temple only for now
+
+      @grant_submissions.each do |gs|
+          vote = Vote.where("voter_id = ? AND grant_submission_id = ?", current_voter.id, gs.id).take
+          vote.score_t = params['t'][gs.id.to_s]
+          vote.score_c = params['c'][gs.id.to_s]
+          vote.score_f = params['f'][gs.id.to_s]
+          vote.save
+
+          puts "hiiiii!"
+
+          puts params['t'][gs.id.to_s]
+          puts params['c'][gs.id.to_s]
+          puts params['f'][gs.id.to_s]
+
+
+      end
+
+      redirect_to action: "index"
+
     end
     
 end

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get 'artists/grant_submissions' => 'grant_submissions#index'
 
+  post 'voters/vote' => 'voters#vote'
+
   resources :artists, :voters, :admins, :grant_submissions
 
   # The priority is based upon order of creation: first created -> highest priority.

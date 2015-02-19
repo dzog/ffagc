@@ -67,8 +67,6 @@ class VotersController < ApplicationController
     end
 
   def vote
-      # render plain: params.inspect
-
       @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #lace and temple only for now
 
       @grant_submissions.each do |gs|
@@ -77,13 +75,6 @@ class VotersController < ApplicationController
           vote.score_c = params['c'][gs.id.to_s]
           vote.score_f = params['f'][gs.id.to_s]
           vote.save
-
-          puts "hiiiii!"
-
-          puts params['t'][gs.id.to_s]
-          puts params['c'][gs.id.to_s]
-          puts params['f'][gs.id.to_s]
-
 
       end
 

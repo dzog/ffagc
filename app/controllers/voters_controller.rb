@@ -26,6 +26,11 @@ class VotersController < ApplicationController
         @voter = Voter.new(voter_params)
         
         @voter.email = @voter.email.downcase
+
+        if(Voter.where(email: @voter.email).take)
+            render "signup_exists"
+            return
+        end
         
         if @voter.save
             session[:voter_id] = @voter.id # log in

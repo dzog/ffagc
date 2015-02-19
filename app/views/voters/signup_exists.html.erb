@@ -1,0 +1,14 @@
+<div class="container">
+    <h1><%= link_to "Firefly Art Grants", :controller => "home", :action => "index" %>: Failure</h1>
+    <h1>Signup failed!</h1>
+
+    This email address (<%= @voter.email %>) already exists in our system!
+
+    <br /><br />
+
+    Please <%= link_to "log in", :controller => "voters", :action => "index" %> to continue.
+
+    <br /><br />
+
+    If you're having trouble, please contact us at <a href="mailto:grants@fireflyartscollective.org">grants@fireflyartscollective.org</a>
+</div>

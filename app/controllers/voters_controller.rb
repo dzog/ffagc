@@ -46,6 +46,11 @@ class VotersController < ApplicationController
     end
     
     def index
+
+        if(!current_voter)
+            return
+        end
+
         @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #lace and temple only for now
 
         @votes = Hash.new

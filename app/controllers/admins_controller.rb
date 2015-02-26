@@ -61,7 +61,9 @@ class AdminsController < ApplicationController
         @results[gs.id]['avg_f'] = f_sum.fdiv(f_num).round(2)
       end
 
-      #@votes[gs.id] = vote
+      if(@results[gs.id]['avg_t'] && @results[gs.id]['avg_c'] && @results[gs.id]['avg_f'])
+        @results[gs.id]['avg_s'] = ((@results[gs.id]['avg_t'] + @results[gs.id]['avg_c'] + @results[gs.id]['avg_f'])/3.0).round(2)
+      end
 
     end
 

@@ -13,6 +13,7 @@
 				<td>avg_t</td>
 				<td>avg_c</td>
 				<td>avg_f</td>
+				<td>avg_s</td>
 			</tr>
 
 			<% @grant_submissions.each do |gs| %>
@@ -22,6 +23,7 @@
 					<td><%= @results[gs.id]['avg_t'] %></td>
 					<td><%= @results[gs.id]['avg_c'] %></td>
 					<td><%= @results[gs.id]['avg_f'] %></td>
+					<td><%= @results[gs.id]['avg_s'] %></td>
 				</tr>
 			<% end %>
 

@@ -10,24 +10,18 @@
 			<tr>
 				<td>id</td>
 				<td>name</td>
-				<td>num_t</td>
-				<td>sum_t</td>
-				<td>num_c</td>
-				<td>sum_c</td>
-				<td>num_f</td>
-				<td>sum_f</td>
+				<td>avg_t</td>
+				<td>avg_c</td>
+				<td>avg_f</td>
 			</tr>
 
 			<% @grant_submissions.each do |gs| %>
 			    <tr>
 					<td><%= gs.id %></td>
 					<td><%= gs.name %></td>
-					<td><%= @results[gs.id]['num_t'] %></td>
-					<td><%= @results[gs.id]['sum_t'] %></td>
-					<td><%= @results[gs.id]['num_c'] %></td>
-					<td><%= @results[gs.id]['sum_c'] %></td>
-					<td><%= @results[gs.id]['num_f'] %></td>
-					<td><%= @results[gs.id]['sum_f'] %></td>
+					<td><%= @results[gs.id]['avg_t'] %></td>
+					<td><%= @results[gs.id]['avg_c'] %></td>
+					<td><%= @results[gs.id]['avg_f'] %></td>
 				</tr>
 			<% end %>
 

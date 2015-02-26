@@ -1,14 +1,51 @@
 <div class="container">
   <h1><%= link_to "Firefly Art Grants", :controller => "home", :action => "index" %>: Admins</h1>
 
-	<%= form_tag(controller: 'sessions', action:'create_admin') do %>
-	<h2>Sign in:</h2>
-	<fieldset>
-	  <%= text_field :session, :email, :placeholder => "Email Address" %>
-		<br />
-	  <%= password_field :session, :password, :placeholder => "Password" %>
-		<br />
-	  <%= submit_tag("Sign In", class: "button") %>
-	</formset>
+	<% if admin_logged_in? %>
+
+		You are logged in as: <%= current_admin.name %> (<%= current_admin.email %>) [<%= link_to "Log Out", :controller => "sessions", :action => "delete_admin" %>]
+		<br /><br />
+
+		<table border="1">
+			<tr>
+				<td>id</td>
+				<td>name</td>
+				<td>num_t</td>
+				<td>sum_t</td>
+				<td>num_c</td>
+				<td>sum_c</td>
+				<td>num_f</td>
+				<td>sum_f</td>
+			</tr>
+
+			<% @grant_submissions.each do |gs| %>
+			    <tr>
+					<td><%= gs.id %></td>
+					<td><%= gs.name %></td>
+					<td><%= @results[gs.id]['num_t'] %></td>
+					<td><%= @results[gs.id]['sum_t'] %></td>
+					<td><%= @results[gs.id]['num_c'] %></td>
+					<td><%= @results[gs.id]['sum_c'] %></td>
+					<td><%= @results[gs.id]['num_f'] %></td>
+					<td><%= @results[gs.id]['sum_f'] %></td>
+				</tr>
+			<% end %>
+
+		</table>
+
+
+	<% else %>
+
+		<%= form_tag(controller: 'sessions', action:'create_admin') do %>
+		<h2>Sign in:</h2>
+		<fieldset>
+		  <%= text_field :session, :email, :placeholder => "Email Address" %>
+			<br />
+		  <%= password_field :session, :password, :placeholder => "Password" %>
+			<br />
+		  <%= submit_tag("Sign In", class: "button") %>
+		</formset>
+		<% end %>
+
 	<% end %>
 </div>

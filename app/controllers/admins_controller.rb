@@ -44,21 +44,21 @@ class AdminsController < ApplicationController
       @results[gs.id]['sum_t'] = t_sum
 
       if(t_num > 0)
-        @results[gs.id]['avg_t'] = t_sum.fdiv(t_num)
+        @results[gs.id]['avg_t'] = t_sum.fdiv(t_num).round(2)
       end
 
       @results[gs.id]['num_c'] = c_num
       @results[gs.id]['sum_c'] = c_sum
 
       if(c_num > 0)
-        @results[gs.id]['avg_c'] = c_sum.fdiv(c_num)
+        @results[gs.id]['avg_c'] = c_sum.fdiv(c_num).round(2)
       end
 
       @results[gs.id]['num_f'] = f_num
       @results[gs.id]['sum_f'] = f_sum
 
       if(f_num > 0)
-        @results[gs.id]['avg_f'] = f_sum.fdiv(f_num)
+        @results[gs.id]['avg_f'] = f_sum.fdiv(f_num).round(2)
       end
 
       #@votes[gs.id] = vote

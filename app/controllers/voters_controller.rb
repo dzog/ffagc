@@ -9,7 +9,7 @@ class VotersController < ApplicationController
     include #??
     
     def signup
-        
+
     end
     
     def voter_params
@@ -56,7 +56,7 @@ class VotersController < ApplicationController
             return
         end
 
-        @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #lace and temple only for now
+        @grant_submissions = GrantSubmission.where(grant_id: [3,4]) #creativity and legacy
 
         @grant_submissions = @grant_submissions.sort { |a,b| [a.grant_id,a.id] <=> [b.grant_id,b.id] }
 
@@ -79,7 +79,7 @@ class VotersController < ApplicationController
     end
 
   def vote
-      @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #lace and temple only for now
+      @grant_submissions = GrantSubmission.where(grant_id: [3,4]) #creativity and legacy
 
       @grant_submissions.each do |gs|
           vote = Vote.where("voter_id = ? AND grant_submission_id = ?", current_voter.id, gs.id).take

@@ -17,7 +17,7 @@ class AdminsController < ApplicationController
     vv_arr = @verified_voters.to_ary
     idx = 0
     max = vv_arr.size
-    per = 1
+    per = 4
 
     @sv = Hash.new
 
@@ -66,7 +66,7 @@ class AdminsController < ApplicationController
     vv_arr = @verified_voters.to_ary
     idx = 0
     max = vv_arr.size
-    per = 1
+    per = 4
 
     @sv = Hash.new
 

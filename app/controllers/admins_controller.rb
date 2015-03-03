@@ -1,9 +1,100 @@
 class AdminsController < ApplicationController
 
+
+  def assign
+    if(!current_admin)
+      return
+    end
+
+    # a terrible terrible thing :(
+
+    #delete current assignments
+    VoterSubmissionAssignment.destroy_all
+
+    #undercooked copypasta w/ no sauce
+
+    @verified_voters = Voter.where("verified = 1")
+    vv_arr = @verified_voters.to_ary
+    idx = 0
+    max = vv_arr.size
+    per = 1
+
+    @sv = Hash.new
+
+    @submissions = GrantSubmission.where(grant_id: [3,4]) #creativity and legacy only
+
+    @submissions.each do |s|
+      @sv[s.id] = Hash.new
+
+      @sv[s.id]['id'] = s.id
+      @sv[s.id]['name'] = s.name
+      @sv[s.id]['assigned'] = Array.new(per)
+
+      for i in 0..per-1
+        @sv[s.id]['assigned'][i] = vv_arr[idx].id
+
+        vsa = VoterSubmissionAssignment.new
+        vsa.voter = vv_arr[idx].id
+        vsa.grant_submission = s.id
+        vsa.save
+
+        idx=idx+1
+
+        if idx >= max
+          idx = 0
+        end
+
+      end
+
+    end
+
+    redirect_to action: "index"
+
+  end
+
+
   def index
     if(!current_admin)
       return
     end
+
+
+    # verified voters
+
+
+    @verified_voters = Voter.where("verified = 1")
+    vv_arr = @verified_voters.to_ary
+    idx = 0
+    max = vv_arr.size
+    per = 1
+
+    @sv = Hash.new
+
+    @submissions = GrantSubmission.where(grant_id: [3,4]) #creativity and legacy only
+
+    @submissions.each do |s|
+      @sv[s.id] = Hash.new
+
+      @sv[s.id]['id'] = s.id
+      @sv[s.id]['name'] = s.name
+      @sv[s.id]['assigned'] = Array.new(per)
+
+      for i in 0..per-1
+        @sv[s.id]['assigned'][i] = vv_arr[idx].id
+
+        idx=idx+1
+
+        if idx >= max
+          idx = 0
+        end
+
+      end
+
+    end
+
+
+
+    # results
 
     @results = Hash.new
 

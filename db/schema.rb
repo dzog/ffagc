@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303203437) do
+ActiveRecord::Schema.define(version: 20150303212742) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -70,6 +70,9 @@ ActiveRecord::Schema.define(version: 20150303203437) do
     t.datetime "updated_at"
     t.integer  "max_funding_dollars"
   end
+
+# Could not dump table "voter_submission_assignments" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "voter_surveys", force: true do |t|
     t.boolean  "has_attended_firefly"

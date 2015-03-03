@@ -10,6 +10,10 @@
 		<br /><br />
 		<%= form_tag("/voters/vote", method: "post") do %>
 
+			<b><u>Assigned To You</u></b>
+			<br /><br />
+			Please vote on these before the meeting!
+			<br /><br />
 			<table border="1" cellpadding="4">
 				<tr>
 					<td>ID</td>
@@ -21,7 +25,7 @@
 					<td>C</td>
 					<td>F</td>
 				</tr>
-				<% @grant_submissions.each do |gs| %>
+				<% @grant_submissions_assigned.each do |gs| %>
 					<tr>
 						<td><%= gs.id %></td>
 						<td><%= gs.name %></td>
@@ -56,6 +60,57 @@
 
 				<% end %>
 			</table>
+		<br />
+		<u>Not Assigned To You</u>
+		<br /><br />
+		You may vote on these before the meeting if you wish.
+		<br /><br />
+		<table border="1" cellpadding="4">
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Grant</td>
+				<td>Requested</td>
+				<td>Submission</td>
+				<td>T</td>
+				<td>C</td>
+				<td>F</td>
+			</tr>
+			<% @grant_submissions_unassigned.each do |gs| %>
+				<tr>
+					<td><%= gs.id %></td>
+					<td><%= gs.name %></td>
+					<td><%= (Grant.where(id: gs.grant_id).take).name rescue "Unknown" %></td>
+					<td>$<%= gs.requested_funding_dollars %></td>
+					<td><a href="<%= gs.proposal %>">Download</a></td>
+					<td>
+						<select name="t[<%= gs.id %>]" onchange="submit()">
+							<option></option>
+							<option <%= @votes[gs.id].score_t == 0 ? "selected" : "" %>>0</option>
+							<option <%= @votes[gs.id].score_t == 1 ? "selected" : "" %>>1</option>
+							<option <%= @votes[gs.id].score_t == 2 ? "selected" : "" %>>2</option>
+						</select>
+					</td>
+					<td>
+						<select name="c[<%= gs.id %>]" onchange="submit()">
+							<option></option>
+							<option <%= @votes[gs.id].score_c == 0 ? "selected" : "" %>>0</option>
+							<option <%= @votes[gs.id].score_c == 1 ? "selected" : "" %>>1</option>
+							<option <%= @votes[gs.id].score_c == 2 ? "selected" : "" %>>2</option>
+						</select>
+					</td>
+					<td>
+						<select name="f[<%= gs.id %>]" onchange="submit()">
+							<option></option>
+							<option <%= @votes[gs.id].score_f == 0 ? "selected" : "" %>>0</option>
+							<option <%= @votes[gs.id].score_f == 1 ? "selected" : "" %>>1</option>
+							<option <%= @votes[gs.id].score_f == 2 ? "selected" : "" %>>2</option>
+						</select>
+					</td>
+				</tr>
+
+			<% end %>
+		</table>
 
 		<% end %>
 

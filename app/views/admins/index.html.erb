@@ -10,6 +10,45 @@
 			<tr>
 				<td>id</td>
 				<td>name</td>
+				<td>assigned</td>
+			</tr>
+			<% @submissions.each do |s| %>
+				<tr>
+					<td><%= @sv[s.id]['id'] %></td>
+					<td><%= @sv[s.id]['name'] %></td>
+					<td><%= @sv[s.id]['assigned'].join(',').html_safe %></td>
+				</tr>
+			<% end %>
+
+		</table>
+
+		<%= link_to "Assign!", :controller => "admins", :action => "assign" %>
+
+		<br /><br />
+
+		<table border="1">
+			<tr>
+				<td>id</td>
+				<td>name</td>
+				<td>email</td>
+				<td>assigned</td>
+			</tr>
+			<% @verified_voters.each do |vv| %>
+				<tr>
+					<td><%= vv.id %></td>
+					<td><%= vv.name %></td>
+					<td><%= vv.email %></td>
+					<td></td>
+				</tr>
+			<% end %>
+
+		</table>
+
+		<br /><br />
+		<table border="1">
+			<tr>
+				<td>id</td>
+				<td>name</td>
 				<td>avg_t</td>
 				<td>avg_c</td>
 				<td>avg_f</td>

@@ -66,6 +66,10 @@ class VotersController < ApplicationController
         @votes = Hash.new
 
         @grant_submissions.each do |gs|
+            gs.class_eval do
+                attr_accessor :assigned
+            end
+
             vote = Vote.where("voter_id = ? AND grant_submission_id = ?", current_voter.id, gs.id).take
 
             if(!vote)
@@ -77,7 +81,18 @@ class VotersController < ApplicationController
 
             @votes[gs.id] = vote
 
+            #assignments
+            vsa = VoterSubmissionAssignment.where("voter = ? AND grant_submission = ?", current_voter.id, gs.id).take
+            if(vsa)
+                gs.assigned = 1
+            else
+                gs.assigned = 0
+            end
+
         end
+
+        @grant_submissions_assigned = @grant_submissions.select{|gs| gs.assigned == 1}
+        @grant_submissions_unassigned = @grant_submissions.select{|gs| gs.assigned == 0}
         
     end
 

@@ -66,7 +66,7 @@
 					<td><%= @results[gs.id]['avg_c'] %></td>
 					<td><%= @results[gs.id]['avg_f'] %></td>
 					<td><%= @results[gs.id]['avg_s'] %></td>
-					<td><%= @results[gs.id]['num_total'].to_s + " (" + @results[gs.id]['num_total'].fdiv(3.0).round(2).to_s + ")" %></td>
+					<td><%= @results[gs.id]['num_total'].fdiv(3.0).round(2).to_s + " (" + @results[gs.id]['num_total'].to_s + ")" %></td>
 				</tr>
 			<% end %>
 

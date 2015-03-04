@@ -61,12 +61,12 @@
 			    <tr>
 					<td><%= gs.id %></td>
 					<td><%= gs.name %></td>
-					<td><%= Grant.where("id = ?",gs.grant_id).take.name + "(" + gs.grant_id.to_s + ")" rescue "Unknown (" + gs.grant_id.to_s + ")" %></td>
+					<td><%= Grant.where("id = ?",gs.grant_id).take.name + " (" + gs.grant_id.to_s + ")" rescue "Unknown (" + gs.grant_id.to_s + ")" %></td>
 					<td><%= @results[gs.id]['avg_t'] %></td>
 					<td><%= @results[gs.id]['avg_c'] %></td>
 					<td><%= @results[gs.id]['avg_f'] %></td>
 					<td><%= @results[gs.id]['avg_s'] %></td>
-					<td><%= @results[gs.id]['num_total'] %></td>
+					<td><%= @results[gs.id]['num_total'].to_s + " (" + @results[gs.id]['num_total'].fdiv(3.0).round(2).to_s + ")" %></td>
 				</tr>
 			<% end %>
 

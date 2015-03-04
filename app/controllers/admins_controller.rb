@@ -98,7 +98,7 @@ class AdminsController < ApplicationController
 
     @results = Hash.new
 
-    @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #lace and temple only for now
+    @grant_submissions = GrantSubmission.where(grant_id: [1,2,3,4]) #all grants
 
     @grant_submissions.each do |gs|
 

@@ -38,7 +38,7 @@
 					<td><%= vv.id %></td>
 					<td><%= vv.name %></td>
 					<td><%= vv.email %></td>
-					<td></td>
+					<td> <%= vv.assigned.join(',').html_safe %></td>
 				</tr>
 			<% end %>
 

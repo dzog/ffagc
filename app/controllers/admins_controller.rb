@@ -61,8 +61,20 @@ class AdminsController < ApplicationController
 
     # verified voters
 
-
     @verified_voters = Voter.where("verified = 1")
+
+    @verified_voters.each do |vv|
+      vv.class_eval do
+        attr_accessor :assigned
+      end
+
+      vv.assigned = Array.new
+
+      VoterSubmissionAssignment.where("voter = ?",vv.id).each{|vsa| vv.assigned.push(vsa.grant_submission)}
+
+    end
+
+
     vv_arr = @verified_voters.to_ary
     idx = 0
     max = vv_arr.size

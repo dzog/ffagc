@@ -50,6 +50,7 @@
 				<td>id</td>
 				<td>name</td>
 				<td>grant</td>
+				<td>$</td>
 				<td>avg_t</td>
 				<td>avg_c</td>
 				<td>avg_f</td>
@@ -62,6 +63,7 @@
 					<td><%= gs.id %></td>
 					<td><%= gs.name %></td>
 					<td><%= Grant.where("id = ?",gs.grant_id).take.name + " (" + gs.grant_id.to_s + ")" rescue "Unknown (" + gs.grant_id.to_s + ")" %></td>
+					<td><%= gs.requested_funding_dollars %></td>
 					<td><%= @results[gs.id]['avg_t'] %></td>
 					<td><%= @results[gs.id]['avg_c'] %></td>
 					<td><%= @results[gs.id]['avg_f'] %></td>
@@ -87,4 +89,9 @@
 		<% end %>
 
 	<% end %>
+	<br>
+
+	<img src="/uploads/emot-siren.gif"> <%= link_to "REVEAL IDENTITIES", :controller => "admins", :action => "reveal" %> <img src="/uploads/emot-siren.gif">
+
+
 </div>

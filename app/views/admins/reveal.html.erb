@@ -1,0 +1,39 @@
+<div class="container">
+    <h1><%= link_to "Firefly Art Grants", :controller => "home", :action => "index" %>: Admins</h1>
+
+    <% if admin_logged_in? %>
+
+        <h1>zomg</h1>
+
+        <table border="1">
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>grant</td>
+                <td>$</td>
+                <td>artist name</td>
+                <td>artist email</td>
+            </tr>
+
+            <% @grant_submissions.each do |gs| %>
+                <tr>
+                    <td><%= gs.id %></td>
+                    <td><%= gs.name %></td>
+                    <td><%= (Grant.where(id: gs.grant_id).take).name rescue "Unknown" %></td>
+                    <td><%= gs.requested_funding_dollars %></td>
+                    <td><%= (Artist.where(id: gs.artist_id).take).name rescue "Unknown" %></td>
+                    <td><%= (Artist.where(id: gs.artist_id).take).email rescue "Unknown" %></td>
+                </tr>
+            <% end %>
+
+        </table>
+        <br />
+
+        <%= link_to "Back", :controller => "admins", :action => "index" %>
+
+
+
+<% else %>
+    go away
+    <% end %>
+</div>

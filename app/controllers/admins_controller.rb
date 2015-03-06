@@ -1,5 +1,9 @@
 class AdminsController < ApplicationController
 
+  def reveal
+    @grant_submissions = GrantSubmission.all
+
+  end
 
   def assign
     if(!current_admin)

@@ -73,9 +73,12 @@
 			<% end %>
 
 		</table>
+		<br>
+		<img src="/uploads/emot-siren.gif"> <%= link_to "REVEAL IDENTITIES", :controller => "admins", :action => "reveal" %> <img src="/uploads/emot-siren.gif">
 
 
-	<% else %>
+
+<% else %>
 
 		<%= form_tag(controller: 'sessions', action:'create_admin') do %>
 		<h2>Sign in:</h2>
@@ -88,10 +91,8 @@
 		</formset>
 		<% end %>
 
-	<% end %>
-	<br>
+<% end %>
 
-	<img src="/uploads/emot-siren.gif"> <%= link_to "REVEAL IDENTITIES", :controller => "admins", :action => "reveal" %> <img src="/uploads/emot-siren.gif">
 
 
 </div>

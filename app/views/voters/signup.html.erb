@@ -18,21 +18,25 @@
         <%= f.inputs do %>
             <%= check_box :survey, :has_attended_firefly, :style => "width: 50px;" %> I have attended at least one previous Firefly
             <br /><br />
-            <%= check_box :survey, :not_applying_this_year, :style => "width: 50px;" %> I am NOT applying for a Firefly Art Grant in 2015
+            <%= check_box :survey, :not_applying_this_year, :style => "width: 50px;" %> I am NOT applying for a Firefly Art Grant in 2016
             <br /><br />
             <%= check_box :survey, :will_read, :style => "width: 50px;" %> I commit to reading and considering > 35 applications (~4-6 hours of brain time)
             <br /><br />
-            <%= check_box :survey, :will_meet, :style => "width: 50px;" %> I am willing and able to make all of the meeting discussion dates:
+            <%= check_box :survey, :will_meet, :style => "width: 50px;" %> I am willing and able to make all of the meeting discussion dates within one or both of the following groups:
             <br /><br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday 2/19, 7 PM to 9 PM
+            Group 1:
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday 2/26, 7 PM to 9 PM
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday x/xx, 7 PM to 9 PM
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday 3/5, 7 PM to 9 PM
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday 3/12, 7 PM to 9 PM
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday x/xx, 7 PM to 9 PM
             <br /><br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; These meetings will be held in Davis Square in Somerville, MA (MBTA accessible).
+            Group 2:
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday x/x, 7 PM to 9 PM
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Thursday x/xx, 7 PM to 9 PM
+            <br /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; These meetings will be held somewhere in or near Somerville, MA.
 
 
 <% end %>

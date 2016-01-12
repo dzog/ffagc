@@ -24,7 +24,7 @@ class GrantSubmissionsController < ApplicationController
   end
 
   def index
-    @submissions_open = false #todo load from db
+    @submissions_open = true #todo load from db
 
   end
 

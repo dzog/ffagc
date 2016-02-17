@@ -92,12 +92,15 @@ class VotersController < ApplicationController
         end
 
         @grant_submissions_assigned = @grant_submissions.select{|gs| gs.assigned == 1}
-        @grant_submissions_unassigned = @grant_submissions.select{|gs| gs.assigned == 0}
+        #@grant_submissions_unassigned = @grant_submissions.select{|gs| gs.assigned == 0}
+
+        @grant_submissions_unassigned = GrantSubmission.where(grant_id: [1,2])
+        @grant_submissions_unassigned.sort_by {|gs| gs.grant_id}
         
     end
 
   def vote
-      @grant_submissions = GrantSubmission.where(grant_id: [3,4]) #creativity and legacy
+      @grant_submissions = GrantSubmission.where(grant_id: [1,2]) #temple and ivory
 
       @grant_submissions.each do |gs|
           vote = Vote.where("voter_id = ? AND grant_submission_id = ?", current_voter.id, gs.id).take
